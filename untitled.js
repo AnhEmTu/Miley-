@@ -10,20 +10,23 @@
   }
 
   function clickCaptchaAndSubmit() {
-    const captchaButton = document.querySelector("#captcha-button"); // Replace with your actual CAPTCHA button selector
-    const submitButton = document.querySelector("#submit-button"); // Ensure this is the correct submit button selector
+    const captchaButton = document.querySelector("#captcha-button"); // Thay thế bằng selector thực sự của nút CAPTCHA
+    const submitButton = document.querySelector("#submit-button"); // Đảm bảo đây là selector của nút gửi đúng
     
-    // Click the CAPTCHA button
-    if (captchaButton) {
-      captchaButton.click();
-    }
-
-    // Click the submit button after a short delay to allow the CAPTCHA to process
+    // Chờ một khoảng thời gian nhất định để đảm bảo CAPTCHA đã tải xong
     setTimeout(() => {
-      if (submitButton) {
-        submitButton.click();
+      // Nhấn nút CAPTCHA nếu nó tồn tại
+      if (captchaButton) {
+        captchaButton.click();
+
+        // Chờ thêm một chút trước khi gửi để cho CAPTCHA có thời gian xử lý
+        setTimeout(() => {
+          if (submitButton) {
+            submitButton.click();
+          }
+        }, 1000); // Điều chỉnh thời gian này nếu cần
       }
-    }, 1000); // Adjust time as necessary
+    }, 10000); // Chờ 10 giây trước khi nhấn nút CAPTCHA
   }
 
   window.addEventListener("load", () => {
@@ -58,7 +61,7 @@
       "88aa": "lJTF3tS8",
       "kuwin": "Bc5NgseU",
       "nhà cái 88aa": "PfAD4uGE",
-      };
+    };
 
     for (const [tenAnh, ma] of Object.entries(danhSachMa)) {
       if (document.querySelector(`img[src*='${tenAnh}']`)) {
@@ -84,13 +87,13 @@
       return;
     }
 
-    // ✅ Only change the campaign if no images matched
+    // ✅ Chỉ thay đổi chiến dịch nếu không có ảnh nào khớp
     if (!daTimThay) {
       if (btl) btl.click();
       location.reload();
     }
 
-    // Call the function to click CAPTCHA and submit if a code was entered
+    // Gọi hàm để nhấn CAPTCHA và gửi nếu đã nhập mã
     if (daTimThay) {
       clickCaptchaAndSubmit();
     }
