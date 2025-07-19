@@ -54,7 +54,11 @@
       "https://vtiger.com.co/": "KxXdq7Nw",
       "https://www.camilodiaz.com.co/": "W3wuZnNb",
       "https://i-88aa.com/": "E4apsxJP",
-    };
+      "S666": "u054X8Ne",
+      "88aa": "lJTF3tS8",
+      "kuwin": "Bc5NgseU",
+      "nhà cái 88aa": "PfAD4uGE",
+      };
 
     for (const [tenAnh, ma] of Object.entries(danhSachMa)) {
       if (document.querySelector(`img[src*='${tenAnh}']`)) {
